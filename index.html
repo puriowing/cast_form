@@ -174,6 +174,13 @@
 <input type="radio" id="q01_29" name="q01" value="ストロベリームーン　余命半年の恋（2025-10-17）"  class="mt-1">
 <span>ストロベリームーン　余命半年の恋（2025-10-17）</span>
 </label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_other">
+  <input type="radio" id="q01_other" name="q01" value="その他"  class="mt-1 other-radio" data-text="#q01_other_text">
+  <span>その他</span>
+</label>
+<div class="mt-1" style="margin-left:1.5rem;">
+  <input type="text" id="q01_other_text" name="q01_other_text" class="w-full p-2 border rounded other-text" placeholder="内容を入力してください" disabled>
+</div>
 </section>
 
 <section class="mb-8">
@@ -1434,6 +1441,13 @@
 <input type="radio" id="q32_8" name="q32" value="覚えていない"  class="mt-1">
 <span>覚えていない</span>
 </label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_other">
+  <input type="radio" id="q32_other" name="q32" value="その他"  class="mt-1 other-radio" data-text="#q32_other_text">
+  <span>その他</span>
+</label>
+<div class="mt-1" style="margin-left:1.5rem;">
+  <input type="text" id="q32_other_text" name="q32_other_text" class="w-full p-2 border rounded other-text" placeholder="内容を入力してください" disabled>
+</div>
 </section>
 
 <section class="mt-10">
@@ -1502,6 +1516,35 @@
       }
     }
   });
+
+  // Handle "その他" radios with text fields (Q1 & Q32)
+  function setupOtherRadios(){
+    const otherRadios = form.querySelectorAll('input.other-radio');
+    otherRadios.forEach(radio => {
+      const textSel = radio.getAttribute('data-text');
+      const textInput = form.querySelector(textSel);
+      function sync(){
+        if(radio.checked){
+          textInput.disabled = false;
+          textInput.required = true;
+          textInput.focus();
+        } else {
+          textInput.disabled = true;
+          textInput.required = false;
+          textInput.value = '';
+        }
+        updateProgress();
+      }
+      radio.addEventListener('change', sync);
+      const name = radio.name;
+      form.querySelectorAll(`input[name="${name}"]`).forEach(el=>{
+        if(el !== radio) el.addEventListener('change', sync);
+      });
+      sync();
+    });
+  }
+  setupOtherRadios();
+
 })();
 
 function handleSubmit(e){
