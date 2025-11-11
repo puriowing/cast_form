@@ -1,0 +1,1515 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAST アンケートフォーム（完全版：フロー＆ストック）</title>
+<style>
+  :root { --container: 900px; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; line-height:1.6; color:#111; margin:0; }
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 16px; }
+  /* Compact sticky header */
+  .site-header { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #e5e5e5; }
+  .hdr-inner { display:flex; align-items:center; gap:12px; padding: 8px 0; }
+  .hdr-title { font-size: 18px; font-weight: 700; margin: 0; }
+  .hdr-meta { font-size: 12px; color:#6b7280; margin-left: auto; }
+  .progress { height: 6px; background:#eee; border-radius: 999px; overflow: hidden; }
+  .bar { height: 6px; width:0; background:#111; transition: width 0.3s; }
+  /* Utilities */
+  .border { border:1px solid #e5e5e5; }
+  .rounded { border-radius: 12px; }
+  .rounded-xl { border-radius: 16px; }
+  .mb-2 { margin-bottom: 8px; } .mb-3{margin-bottom:12px;} .mb-8{margin-bottom:32px;} .mb-10{margin-bottom:40px;} .mt-10{margin-top:40px;}
+  .p-2 { padding:8px; } .px-5{padding-left:20px;padding-right:20px;} .py-2{padding-top:8px;padding-bottom:8px;}
+  .font-bold{font-weight:700;} .font-semibold{font-weight:600;}
+  .text-xs{font-size:12px;} .text-sm{font-size:14px;} .text-lg{font-size:18px;}
+  .text-gray-500{color:#6b7280;} .text-gray-600{color:#4b5563;} .text-red-600{color:#dc2626;}
+  .w-full{width:100%;} .flex{display:flex;} .flex-wrap{flex-wrap:wrap;} .items-start{align-items:flex-start;} .gap-2{gap:8px;}
+  .cursor-pointer{cursor:pointer;} .mt-1{margin-top:4px;}
+  .bg-black{background:#111;} .text-white{color:#fff;}
+  main .container { padding: 16px; }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="hdr-inner">
+        <h1 class="hdr-title">CAST アンケートフォーム（完全版：フロー＆ストック）</h1>
+        <div class="hdr-meta">実施日：2025-11-11</div>
+      </div>
+      <div class="progress"><div class="bar" id="progressBar"></div></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <form id="castForm" onsubmit="handleSubmit(event)">
+        
+<section class="mb-10">
+  <h2 class="text-xl font-semibold mb-2">ご協力のお願い</h2>
+  <p class="mb-3">本アンケートは、映画館および作品の体験向上のために実施しています。所要時間は約5〜7分です。個人を特定できる情報は収集しません。</p>
+  <label class="flex items-start gap-2"><input type="checkbox" id="consent" required>
+  <span>上記の目的に同意し、アンケートに回答します。</span></label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">1. 本日ご鑑賞の作品名をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q01_0">
+<input type="radio" id="q01_0" name="q01" value="プレデター　バッドランド（2025-11-07）" required class="mt-1">
+<span>プレデター　バッドランド（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_1">
+<input type="radio" id="q01_1" name="q01" value="劇場版　呪術廻戦「渋谷事変　特別編集版」×「死滅回游　先行上映」（2025-11-07）"  class="mt-1">
+<span>劇場版　呪術廻戦「渋谷事変　特別編集版」×「死滅回游　先行上映」（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_2">
+<input type="radio" id="q01_2" name="q01" value="トリツカレ男（2025-11-07）"  class="mt-1">
+<span>トリツカレ男（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_3">
+<input type="radio" id="q01_3" name="q01" value="旅と日々（2025-11-07）"  class="mt-1">
+<span>旅と日々（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_4">
+<input type="radio" id="q01_4" name="q01" value="羅小黒戦記2 ぼくらが望む未来（2025-11-07）"  class="mt-1">
+<span>羅小黒戦記2 ぼくらが望む未来（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_5">
+<input type="radio" id="q01_5" name="q01" value="ラブライブ！虹ヶ咲学園スクールアイドル同好会　完結編　第2章（2025-11-07）"  class="mt-1">
+<span>ラブライブ！虹ヶ咲学園スクールアイドル同好会　完結編　第2章（2025-11-07）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_6">
+<input type="radio" id="q01_6" name="q01" value="あの時、愛を伝えられなかった僕の、3つの“もしも”の世界。（2025-10-31）"  class="mt-1">
+<span>あの時、愛を伝えられなかった僕の、3つの“もしも”の世界。（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_7">
+<input type="radio" id="q01_7" name="q01" value="INI THE MOVIE「I Need I」（2025-10-31）"  class="mt-1">
+<span>INI THE MOVIE「I Need I」（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_8">
+<input type="radio" id="q01_8" name="q01" value="（LOVE SONG）（2025-10-31）"  class="mt-1">
+<span>（LOVE SONG）（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_9">
+<input type="radio" id="q01_9" name="q01" value="てっぺんの向こうにあなたがいる（2025-10-31）"  class="mt-1">
+<span>てっぺんの向こうにあなたがいる（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_10">
+<input type="radio" id="q01_10" name="q01" value="盤上の向日葵（2025-10-31）"  class="mt-1">
+<span>盤上の向日葵（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_11">
+<input type="radio" id="q01_11" name="q01" value="爆弾（2025-10-31）"  class="mt-1">
+<span>爆弾（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_12">
+<input type="radio" id="q01_12" name="q01" value="特別編集版　機動戦士ガンダム　鉄血のオルフェンズ　ウルズハント　小さな挑戦者の軌跡（2025-10-31）"  class="mt-1">
+<span>特別編集版　機動戦士ガンダム　鉄血のオルフェンズ　ウルズハント　小さな挑戦者の軌跡（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_13">
+<input type="radio" id="q01_13" name="q01" value="映画　すみっコぐらし　空の王国とふたりのコ（2025-10-31）"  class="mt-1">
+<span>映画　すみっコぐらし　空の王国とふたりのコ（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_14">
+<input type="radio" id="q01_14" name="q01" value="機動戦士ガンダム　鉄血のオルフェンズ 10周年記念新作短編「幕間の楔」（2025-10-31）"  class="mt-1">
+<span>機動戦士ガンダム　鉄血のオルフェンズ 10周年記念新作短編「幕間の楔」（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_15">
+<input type="radio" id="q01_15" name="q01" value="エニシング・ゴーズ（2025-10-31）"  class="mt-1">
+<span>エニシング・ゴーズ（2025-10-31）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_16">
+<input type="radio" id="q01_16" name="q01" value="ONE IN A MILL10N（2025-10-24）"  class="mt-1">
+<span>ONE IN A MILL10N（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_17">
+<input type="radio" id="q01_17" name="q01" value="ゾンビランドサガ　ゆめぎんがパラダイス（2025-10-24）"  class="mt-1">
+<span>ゾンビランドサガ　ゆめぎんがパラダイス（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_18">
+<input type="radio" id="q01_18" name="q01" value="Mr.ノーバディ2（2025-10-24）"  class="mt-1">
+<span>Mr.ノーバディ2（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_19">
+<input type="radio" id="q01_19" name="q01" value="富士山と、コーヒーと、しあわせの数式（2025-10-24）"  class="mt-1">
+<span>富士山と、コーヒーと、しあわせの数式（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_20">
+<input type="radio" id="q01_20" name="q01" value="ローズ家　崖っぷちの夫婦（2025-10-24）"  class="mt-1">
+<span>ローズ家　崖っぷちの夫婦（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_21">
+<input type="radio" id="q01_21" name="q01" value="ミーツ・ザ・ワールド（2025-10-24）"  class="mt-1">
+<span>ミーツ・ザ・ワールド（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_22">
+<input type="radio" id="q01_22" name="q01" value="フジコ・ヘミング　永遠の音色（2025-10-24）"  class="mt-1">
+<span>フジコ・ヘミング　永遠の音色（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_23">
+<input type="radio" id="q01_23" name="q01" value="愚か者の身分（2025-10-24）"  class="mt-1">
+<span>愚か者の身分（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_24">
+<input type="radio" id="q01_24" name="q01" value="恋に至る病（2025-10-24）"  class="mt-1">
+<span>恋に至る病（2025-10-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_25">
+<input type="radio" id="q01_25" name="q01" value="おーい、応為（2025-10-17）"  class="mt-1">
+<span>おーい、応為（2025-10-17）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_26">
+<input type="radio" id="q01_26" name="q01" value="劇場版 OFFICIAL HIGE DANDISM LIVE at STADIUM 2025（2025-10-17）"  class="mt-1">
+<span>劇場版 OFFICIAL HIGE DANDISM LIVE at STADIUM 2025（2025-10-17）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_27">
+<input type="radio" id="q01_27" name="q01" value="死霊館　最後の儀式（2025-10-17）"  class="mt-1">
+<span>死霊館　最後の儀式（2025-10-17）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_28">
+<input type="radio" id="q01_28" name="q01" value="牙狼 GARO TAIGA（2025-10-17）"  class="mt-1">
+<span>牙狼 GARO TAIGA（2025-10-17）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q01_29">
+<input type="radio" id="q01_29" name="q01" value="ストロベリームーン　余命半年の恋（2025-10-17）"  class="mt-1">
+<span>ストロベリームーン　余命半年の恋（2025-10-17）</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">2. ご鑑賞の上映フォーマットをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q02_0">
+<input type="radio" id="q02_0" name="q02" value="通常上映（2D字幕）" required class="mt-1">
+<span>通常上映（2D字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_1">
+<input type="radio" id="q02_1" name="q02" value="通常上映（2D吹替）"  class="mt-1">
+<span>通常上映（2D吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_2">
+<input type="radio" id="q02_2" name="q02" value="3D（字幕）"  class="mt-1">
+<span>3D（字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_3">
+<input type="radio" id="q02_3" name="q02" value="3D（吹替）"  class="mt-1">
+<span>3D（吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_4">
+<input type="radio" id="q02_4" name="q02" value="IMAX（字幕）"  class="mt-1">
+<span>IMAX（字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_5">
+<input type="radio" id="q02_5" name="q02" value="IMAX（吹替）"  class="mt-1">
+<span>IMAX（吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_6">
+<input type="radio" id="q02_6" name="q02" value="4DX/MX4D（字幕）"  class="mt-1">
+<span>4DX/MX4D（字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_7">
+<input type="radio" id="q02_7" name="q02" value="4DX/MX4D（吹替）"  class="mt-1">
+<span>4DX/MX4D（吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_8">
+<input type="radio" id="q02_8" name="q02" value="Dolby Cinema（字幕）"  class="mt-1">
+<span>Dolby Cinema（字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_9">
+<input type="radio" id="q02_9" name="q02" value="Dolby Cinema（吹替）"  class="mt-1">
+<span>Dolby Cinema（吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_10">
+<input type="radio" id="q02_10" name="q02" value="ScreenX（字幕）"  class="mt-1">
+<span>ScreenX（字幕）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_11">
+<input type="radio" id="q02_11" name="q02" value="ScreenX（吹替）"  class="mt-1">
+<span>ScreenX（吹替）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q02_12">
+<input type="radio" id="q02_12" name="q02" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">3. この作品の鑑賞は今回で何回目ですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q03_0">
+<input type="radio" id="q03_0" name="q03" value="初めて" required class="mt-1">
+<span>初めて</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q03_1">
+<input type="radio" id="q03_1" name="q03" value="2回目"  class="mt-1">
+<span>2回目</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q03_2">
+<input type="radio" id="q03_2" name="q03" value="3回目"  class="mt-1">
+<span>3回目</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q03_3">
+<input type="radio" id="q03_3" name="q03" value="4回目"  class="mt-1">
+<span>4回目</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q03_4">
+<input type="radio" id="q03_4" name="q03" value="5回目以上"  class="mt-1">
+<span>5回目以上</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">4. この作品を「もう一度、映画館で」観たいと思いますか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q04_0">
+<input type="radio" id="q04_0" name="q04" value="ぜひもう一度映画館で観たい" required class="mt-1">
+<span>ぜひもう一度映画館で観たい</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q04_1">
+<input type="radio" id="q04_1" name="q04" value="別フォーマット（IMAXや4DXなど）でもう一度観たい"  class="mt-1">
+<span>別フォーマット（IMAXや4DXなど）でもう一度観たい</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q04_2">
+<input type="radio" id="q04_2" name="q04" value="機会があれば観るかもしれない"  class="mt-1">
+<span>機会があれば観るかもしれない</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q04_3">
+<input type="radio" id="q04_3" name="q04" value="映画館では観ない（配信やレンタルで観れば十分）"  class="mt-1">
+<span>映画館では観ない（配信やレンタルで観れば十分）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q04_4">
+<input type="radio" id="q04_4" name="q04" value="もう一度観ることはない"  class="mt-1">
+<span>もう一度観ることはない</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">5. この作品を友人・同僚にどの程度おすすめしたいですか？（0～10点） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <div class="flex flex-wrap"><label for="q05_0" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_0" name="q05" value="0" required>
+<span class="text-xs mt-1">0</span>
+</label>
+<label for="q05_1" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_1" name="q05" value="1" >
+<span class="text-xs mt-1">1</span>
+</label>
+<label for="q05_2" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_2" name="q05" value="2" >
+<span class="text-xs mt-1">2</span>
+</label>
+<label for="q05_3" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_3" name="q05" value="3" >
+<span class="text-xs mt-1">3</span>
+</label>
+<label for="q05_4" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_4" name="q05" value="4" >
+<span class="text-xs mt-1">4</span>
+</label>
+<label for="q05_5" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_5" name="q05" value="5" >
+<span class="text-xs mt-1">5</span>
+</label>
+<label for="q05_6" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_6" name="q05" value="6" >
+<span class="text-xs mt-1">6</span>
+</label>
+<label for="q05_7" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_7" name="q05" value="7" >
+<span class="text-xs mt-1">7</span>
+</label>
+<label for="q05_8" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_8" name="q05" value="8" >
+<span class="text-xs mt-1">8</span>
+</label>
+<label for="q05_9" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_9" name="q05" value="9" >
+<span class="text-xs mt-1">9</span>
+</label>
+<label for="q05_10" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q05_10" name="q05" value="10" >
+<span class="text-xs mt-1">10</span>
+</label></div><p class="text-xs text-gray-600 mt-1">0=全くすすめない／10=強くすすめる</p>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">6. 作品の満足点を最大3つまでお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q06_0">
+<input type="checkbox" id="q06_0" name="q06" value="ストーリー／脚本" data-limit="3" class="mt-1 cb-limit">
+<span>ストーリー／脚本</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_1">
+<input type="checkbox" id="q06_1" name="q06" value="演出" data-limit="3" class="mt-1 cb-limit">
+<span>演出</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_2">
+<input type="checkbox" id="q06_2" name="q06" value="キャスト／俳優の演技" data-limit="3" class="mt-1 cb-limit">
+<span>キャスト／俳優の演技</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_3">
+<input type="checkbox" id="q06_3" name="q06" value="映像美／美術" data-limit="3" class="mt-1 cb-limit">
+<span>映像美／美術</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_4">
+<input type="checkbox" id="q06_4" name="q06" value="音楽／音響" data-limit="3" class="mt-1 cb-limit">
+<span>音楽／音響</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_5">
+<input type="checkbox" id="q06_5" name="q06" value="感動した" data-limit="3" class="mt-1 cb-limit">
+<span>感動した</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_6">
+<input type="checkbox" id="q06_6" name="q06" value="スカっとした／爽快感" data-limit="3" class="mt-1 cb-limit">
+<span>スカっとした／爽快感</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_7">
+<input type="checkbox" id="q06_7" name="q06" value="結末の意外性" data-limit="3" class="mt-1 cb-limit">
+<span>結末の意外性</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_8">
+<input type="checkbox" id="q06_8" name="q06" value="原作の世界観" data-limit="3" class="mt-1 cb-limit">
+<span>原作の世界観</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q06_9">
+<input type="checkbox" id="q06_9" name="q06" value="その他" data-limit="3" class="mt-1 cb-limit">
+<span>その他</span>
+</label><p class="text-xs text-gray-600 mt-1">最大3つまで選択できます。</p>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">7. 作品に関するご感想があればご自由にお書きください。（任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
+  <textarea id="q07" name="q07" rows="4" class="w-full p-2 border rounded" placeholder="ご自由にお書きください"></textarea>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">8. この作品の情報を最初に知ったのはどれですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q08_0">
+<input type="radio" id="q08_0" name="q08" value="劇場での予告編" required class="mt-1">
+<span>劇場での予告編</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_1">
+<input type="radio" id="q08_1" name="q08" value="テレビCM"  class="mt-1">
+<span>テレビCM</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_2">
+<input type="radio" id="q08_2" name="q08" value="YouTube"  class="mt-1">
+<span>YouTube</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_3">
+<input type="radio" id="q08_3" name="q08" value="X(旧Twitter)"  class="mt-1">
+<span>X(旧Twitter)</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_4">
+<input type="radio" id="q08_4" name="q08" value="Instagram"  class="mt-1">
+<span>Instagram</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_5">
+<input type="radio" id="q08_5" name="q08" value="TikTok"  class="mt-1">
+<span>TikTok</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_6">
+<input type="radio" id="q08_6" name="q08" value="映画情報サイト／アプリ"  class="mt-1">
+<span>映画情報サイト／アプリ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_7">
+<input type="radio" id="q08_7" name="q08" value="Webニュース／記事"  class="mt-1">
+<span>Webニュース／記事</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_8">
+<input type="radio" id="q08_8" name="q08" value="友人／家族からの口コミ"  class="mt-1">
+<span>友人／家族からの口コミ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q08_9">
+<input type="radio" id="q08_9" name="q08" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">9. この作品を観ようと決めた一番の理由はどれですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q09_0">
+<input type="radio" id="q09_0" name="q09" value="好きな監督・俳優が出演" required class="mt-1">
+<span>好きな監督・俳優が出演</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_1">
+<input type="radio" id="q09_1" name="q09" value="予告編が面白そうだった"  class="mt-1">
+<span>予告編が面白そうだった</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_2">
+<input type="radio" id="q09_2" name="q09" value="あらすじ・ストーリーに惹かれた"  class="mt-1">
+<span>あらすじ・ストーリーに惹かれた</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_3">
+<input type="radio" id="q09_3" name="q09" value="原作のファン"  class="mt-1">
+<span>原作のファン</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_4">
+<input type="radio" id="q09_4" name="q09" value="家族や友人から勧められた"  class="mt-1">
+<span>家族や友人から勧められた</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_5">
+<input type="radio" id="q09_5" name="q09" value="世間の評判・レビューが高かった"  class="mt-1">
+<span>世間の評判・レビューが高かった</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_6">
+<input type="radio" id="q09_6" name="q09" value="特別な上映形式"  class="mt-1">
+<span>特別な上映形式</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q09_7">
+<input type="radio" id="q09_7" name="q09" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">10. 本日ご来館の“最後のひと押し”は何でしたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q10_0">
+<input type="radio" id="q10_0" name="q10" value="SNSで絶賛の感想を見たから" required class="mt-1">
+<span>SNSで絶賛の感想を見たから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_1">
+<input type="radio" id="q10_1" name="q10" value="友人や家族に強く誘われたから"  class="mt-1">
+<span>友人や家族に強く誘われたから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_2">
+<input type="radio" id="q10_2" name="q10" value="今日しか観る時間がなさそうだったから"  class="mt-1">
+<span>今日しか観る時間がなさそうだったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_3">
+<input type="radio" id="q10_3" name="q10" value="入場者特典の最終日だったから"  class="mt-1">
+<span>入場者特典の最終日だったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_4">
+<input type="radio" id="q10_4" name="q10" value="急に時間ができたから"  class="mt-1">
+<span>急に時間ができたから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_5">
+<input type="radio" id="q10_5" name="q10" value="割引デーや使えるクーポンがあったから"  class="mt-1">
+<span>割引デーや使えるクーポンがあったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_6">
+<input type="radio" id="q10_6" name="q10" value="テレビの情報番組や特集を見て（改めて観たくなった）"  class="mt-1">
+<span>テレビの情報番組や特集を見て（改めて観たくなった）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_7">
+<input type="radio" id="q10_7" name="q10" value="上映がもうすぐ終わりそうだったから"  class="mt-1">
+<span>上映がもうすぐ終わりそうだったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q10_8">
+<input type="radio" id="q10_8" name="q10" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">11. この映画館を家族や友人にどの程度おすすめしたいですか？（0～10点） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <div class="flex flex-wrap"><label for="q11_0" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_0" name="q11" value="0" required>
+<span class="text-xs mt-1">0</span>
+</label>
+<label for="q11_1" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_1" name="q11" value="1" >
+<span class="text-xs mt-1">1</span>
+</label>
+<label for="q11_2" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_2" name="q11" value="2" >
+<span class="text-xs mt-1">2</span>
+</label>
+<label for="q11_3" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_3" name="q11" value="3" >
+<span class="text-xs mt-1">3</span>
+</label>
+<label for="q11_4" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_4" name="q11" value="4" >
+<span class="text-xs mt-1">4</span>
+</label>
+<label for="q11_5" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_5" name="q11" value="5" >
+<span class="text-xs mt-1">5</span>
+</label>
+<label for="q11_6" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_6" name="q11" value="6" >
+<span class="text-xs mt-1">6</span>
+</label>
+<label for="q11_7" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_7" name="q11" value="7" >
+<span class="text-xs mt-1">7</span>
+</label>
+<label for="q11_8" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_8" name="q11" value="8" >
+<span class="text-xs mt-1">8</span>
+</label>
+<label for="q11_9" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_9" name="q11" value="9" >
+<span class="text-xs mt-1">9</span>
+</label>
+<label for="q11_10" class="inline-flex flex-col items-center m-1">
+<input type="radio" id="q11_10" name="q11" value="10" >
+<span class="text-xs mt-1">10</span>
+</label></div><p class="text-xs text-gray-600 mt-1">0=全くすすめない／10=強くすすめる</p>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">12. 本日、この映画館を選んだ一番の理由をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q12_0">
+<input type="radio" id="q12_0" name="q12" value="立地が便利だから" required class="mt-1">
+<span>立地が便利だから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q12_1">
+<input type="radio" id="q12_1" name="q12" value="上映時間が都合よかったから"  class="mt-1">
+<span>上映時間が都合よかったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q12_2">
+<input type="radio" id="q12_2" name="q12" value="使いたい会員サービスがあったから"  class="mt-1">
+<span>使いたい会員サービスがあったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q12_3">
+<input type="radio" id="q12_3" name="q12" value="特別な設備で観たかったから"  class="mt-1">
+<span>特別な設備で観たかったから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q12_4">
+<input type="radio" id="q12_4" name="q12" value="いつも利用しているから"  class="mt-1">
+<span>いつも利用しているから</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q12_5">
+<input type="radio" id="q12_5" name="q12" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">13. 本日、映画館でフード／ドリンクを購入しましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q13_0">
+<input type="radio" id="q13_0" name="q13" value="購入した" required class="mt-1">
+<span>購入した</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q13_1">
+<input type="radio" id="q13_1" name="q13" value="購入しなかった"  class="mt-1">
+<span>購入しなかった</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">14. 映画館へのご意見・ご要望があればご記入ください。（任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
+  <textarea id="q14" name="q14" rows="4" class="w-full p-2 border rounded" placeholder="ご自由にお書きください"></textarea>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">15. 本日はどなたとご鑑賞になりましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q15_0">
+<input type="radio" id="q15_0" name="q15" value="1人で" required class="mt-1">
+<span>1人で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_1">
+<input type="radio" id="q15_1" name="q15" value="友人・知人と2人で"  class="mt-1">
+<span>友人・知人と2人で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_2">
+<input type="radio" id="q15_2" name="q15" value="恋人・パートナーと2人で"  class="mt-1">
+<span>恋人・パートナーと2人で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_3">
+<input type="radio" id="q15_3" name="q15" value="家族と2人で"  class="mt-1">
+<span>家族と2人で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_4">
+<input type="radio" id="q15_4" name="q15" value="友人・知人と3人以上で"  class="mt-1">
+<span>友人・知人と3人以上で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_5">
+<input type="radio" id="q15_5" name="q15" value="家族と3人以上で"  class="mt-1">
+<span>家族と3人以上で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q15_6">
+<input type="radio" id="q15_6" name="q15" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">16. ご鑑賞の時間帯をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q16_0">
+<input type="radio" id="q16_0" name="q16" value="平日の午前中" required class="mt-1">
+<span>平日の午前中</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q16_1">
+<input type="radio" id="q16_1" name="q16" value="平日の午後"  class="mt-1">
+<span>平日の午後</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q16_2">
+<input type="radio" id="q16_2" name="q16" value="平日の夜"  class="mt-1">
+<span>平日の夜</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q16_3">
+<input type="radio" id="q16_3" name="q16" value="休日の午前中"  class="mt-1">
+<span>休日の午前中</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q16_4">
+<input type="radio" id="q16_4" name="q16" value="休日の午後"  class="mt-1">
+<span>休日の午後</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q16_5">
+<input type="radio" id="q16_5" name="q16" value="休日の夜"  class="mt-1">
+<span>休日の夜</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">17. チケットはいつ購入しましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q17_0">
+<input type="radio" id="q17_0" name="q17" value="当日" required class="mt-1">
+<span>当日</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q17_1">
+<input type="radio" id="q17_1" name="q17" value="2～3日前"  class="mt-1">
+<span>2～3日前</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q17_2">
+<input type="radio" id="q17_2" name="q17" value="1週間前"  class="mt-1">
+<span>1週間前</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q17_3">
+<input type="radio" id="q17_3" name="q17" value="それ以上前"  class="mt-1">
+<span>それ以上前</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">18. 今回のチケットの購入方法をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q18_0">
+<input type="radio" id="q18_0" name="q18" value="当日窓口で" required class="mt-1">
+<span>当日窓口で</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q18_1">
+<input type="radio" id="q18_1" name="q18" value="劇場の公式サイトで"  class="mt-1">
+<span>劇場の公式サイトで</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q18_2">
+<input type="radio" id="q18_2" name="q18" value="前売り券（ムビチケ）を購入"  class="mt-1">
+<span>前売り券（ムビチケ）を購入</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q18_3">
+<input type="radio" id="q18_3" name="q18" value="映画GIFTを購入"  class="mt-1">
+<span>映画GIFTを購入</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q18_4">
+<input type="radio" id="q18_4" name="q18" value="映画サイトで"  class="mt-1">
+<span>映画サイトで</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q18_5">
+<input type="radio" id="q18_5" name="q18" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">19. 本日ご覧になった予告編で、今後「鑑賞したい」と思った作品があればお選びください。（複数選択可・任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q19_0">
+<input type="checkbox" id="q19_0" name="q19" value="港のひかり（2025-11-14）"  class="mt-1 cb-limit">
+<span>港のひかり（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_1">
+<input type="checkbox" id="q19_1" name="q19" value="映画館で！おかあさんといっしょスペシャルステージ　なないろのはね（2025-11-14）"  class="mt-1 cb-limit">
+<span>映画館で！おかあさんといっしょスペシャルステージ　なないろのはね（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_2">
+<input type="checkbox" id="q19_2" name="q19" value="日記　父と母へ（2025-11-14）"  class="mt-1 cb-limit">
+<span>日記　父と母へ（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_3">
+<input type="checkbox" id="q19_3" name="q19" value="日記　愛する人たちへ（2025-11-14）"  class="mt-1 cb-limit">
+<span>日記　愛する人たちへ（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_4">
+<input type="checkbox" id="q19_4" name="q19" value="ジャスト・ライク・アット・ホーム（2025-11-14）"  class="mt-1 cb-limit">
+<span>ジャスト・ライク・アット・ホーム（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_5">
+<input type="checkbox" id="q19_5" name="q19" value="リダンス（2025-11-14）"  class="mt-1 cb-limit">
+<span>リダンス（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_6">
+<input type="checkbox" id="q19_6" name="q19" value="月が沈むとき（2025-11-14）"  class="mt-1 cb-limit">
+<span>月が沈むとき（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_7">
+<input type="checkbox" id="q19_7" name="q19" value="阪神タイガース THE OFFICIAL MOVIE 2025 栄光の虎道（こどう）（2025-11-14）"  class="mt-1 cb-limit">
+<span>阪神タイガース THE OFFICIAL MOVIE 2025 栄光の虎道（こどう）（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_8">
+<input type="checkbox" id="q19_8" name="q19" value="エルジ（2025-11-14）"  class="mt-1 cb-limit">
+<span>エルジ（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_9">
+<input type="checkbox" id="q19_9" name="q19" value="スプリングスティーン　孤独のハイウェイ（2025-11-14）"  class="mt-1 cb-limit">
+<span>スプリングスティーン　孤独のハイウェイ（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_10">
+<input type="checkbox" id="q19_10" name="q19" value="ブルーボーイ事件（2025-11-14）"  class="mt-1 cb-limit">
+<span>ブルーボーイ事件（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_11">
+<input type="checkbox" id="q19_11" name="q19" value="インディセント（2025-11-14）"  class="mt-1 cb-limit">
+<span>インディセント（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_12">
+<input type="checkbox" id="q19_12" name="q19" value="平場の月（2025-11-14）"  class="mt-1 cb-limit">
+<span>平場の月（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_13">
+<input type="checkbox" id="q19_13" name="q19" value="劇場版総集編　ガールズバンドクライ　後編　なぁ、未来。（2025-11-14）"  class="mt-1 cb-limit">
+<span>劇場版総集編　ガールズバンドクライ　後編　なぁ、未来。（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_14">
+<input type="checkbox" id="q19_14" name="q19" value="日記　子供たちへ（2025-11-14）"  class="mt-1 cb-limit">
+<span>日記　子供たちへ（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_15">
+<input type="checkbox" id="q19_15" name="q19" value="KILL 超覚醒（2025-11-14）"  class="mt-1 cb-limit">
+<span>KILL 超覚醒（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_16">
+<input type="checkbox" id="q19_16" name="q19" value="君と私（2025-11-14）"  class="mt-1 cb-limit">
+<span>君と私（2025-11-14）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_17">
+<input type="checkbox" id="q19_17" name="q19" value="ブラックフォン 2（2025-11-21）"  class="mt-1 cb-limit">
+<span>ブラックフォン 2（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_18">
+<input type="checkbox" id="q19_18" name="q19" value="METライブビューイング2025-26  ベッリーニ《夢遊病の娘》（2025-11-21）"  class="mt-1 cb-limit">
+<span>METライブビューイング2025-26  ベッリーニ《夢遊病の娘》（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_19">
+<input type="checkbox" id="q19_19" name="q19" value="落下の王国 4Kデジタルリマスター（2025-11-21）"  class="mt-1 cb-limit">
+<span>落下の王国 4Kデジタルリマスター（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_20">
+<input type="checkbox" id="q19_20" name="q19" value="TOKYOタクシー（2025-11-21）"  class="mt-1 cb-limit">
+<span>TOKYOタクシー（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_21">
+<input type="checkbox" id="q19_21" name="q19" value="果てしなきスカーレット（2025-11-21）"  class="mt-1 cb-limit">
+<span>果てしなきスカーレット（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_22">
+<input type="checkbox" id="q19_22" name="q19" value="金髪（2025-11-21）"  class="mt-1 cb-limit">
+<span>金髪（2025-11-21）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_23">
+<input type="checkbox" id="q19_23" name="q19" value="MGA MAGICAL 10 YEARS ANNIVERSARY LIVE FJORD（フィヨルド） ON SCREEN（2025-11-28）"  class="mt-1 cb-limit">
+<span>MGA MAGICAL 10 YEARS ANNIVERSARY LIVE FJORD（フィヨルド） ON SCREEN（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_24">
+<input type="checkbox" id="q19_24" name="q19" value="ナイトフラワー（2025-11-28）"  class="mt-1 cb-limit">
+<span>ナイトフラワー（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_25">
+<input type="checkbox" id="q19_25" name="q19" value="タイタニック（2025-11-28）"  class="mt-1 cb-limit">
+<span>タイタニック（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_26">
+<input type="checkbox" id="q19_26" name="q19" value="佐藤さんと佐藤さん（2025-11-28）"  class="mt-1 cb-limit">
+<span>佐藤さんと佐藤さん（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_27">
+<input type="checkbox" id="q19_27" name="q19" value="栄光のバックホーム（2025-11-28）"  class="mt-1 cb-limit">
+<span>栄光のバックホーム（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_28">
+<input type="checkbox" id="q19_28" name="q19" value="そこにきみはいて（2025-11-28）"  class="mt-1 cb-limit">
+<span>そこにきみはいて（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_29">
+<input type="checkbox" id="q19_29" name="q19" value="仮面ライダーガヴ　ギルティ・パルフェ（2025-11-28）"  class="mt-1 cb-limit">
+<span>仮面ライダーガヴ　ギルティ・パルフェ（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_30">
+<input type="checkbox" id="q19_30" name="q19" value="セフレの品格（プライド）　慟哭（2025-11-28）"  class="mt-1 cb-limit">
+<span>セフレの品格（プライド）　慟哭（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_31">
+<input type="checkbox" id="q19_31" name="q19" value="MGA MAGICAL 10 YEARS DOCUMENTARY FILM THE ORIGIN（2025-11-28）"  class="mt-1 cb-limit">
+<span>MGA MAGICAL 10 YEARS DOCUMENTARY FILM THE ORIGIN（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_32">
+<input type="checkbox" id="q19_32" name="q19" value="WEAPONS ウェポンズ（2025-11-28）"  class="mt-1 cb-limit">
+<span>WEAPONS ウェポンズ（2025-11-28）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_33">
+<input type="checkbox" id="q19_33" name="q19" value="アイドリッシュセブン First BEAT! 劇場総集編　後編（2025-12-05）"  class="mt-1 cb-limit">
+<span>アイドリッシュセブン First BEAT! 劇場総集編　後編（2025-12-05）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_34">
+<input type="checkbox" id="q19_34" name="q19" value="WIND BREAKER ウィンドブレイカー（2025-12-05）"  class="mt-1 cb-limit">
+<span>WIND BREAKER ウィンドブレイカー（2025-12-05）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_35">
+<input type="checkbox" id="q19_35" name="q19" value="ペリリュー　楽園のゲルニカ（2025-12-05）"  class="mt-1 cb-limit">
+<span>ペリリュー　楽園のゲルニカ（2025-12-05）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_36">
+<input type="checkbox" id="q19_36" name="q19" value="ズートピア2（2025-12-05）"  class="mt-1 cb-limit">
+<span>ズートピア2（2025-12-05）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_37">
+<input type="checkbox" id="q19_37" name="q19" value="殺し屋のプロット（2025-12-05）"  class="mt-1 cb-limit">
+<span>殺し屋のプロット（2025-12-05）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_38">
+<input type="checkbox" id="q19_38" name="q19" value="悪魔祓い株式会社（2025-12-12）"  class="mt-1 cb-limit">
+<span>悪魔祓い株式会社（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_39">
+<input type="checkbox" id="q19_39" name="q19" value="セフレの品格（プライド）　終恋（2025-12-12）"  class="mt-1 cb-limit">
+<span>セフレの品格（プライド）　終恋（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_40">
+<input type="checkbox" id="q19_40" name="q19" value="シェルビー・オークス（2025-12-12）"  class="mt-1 cb-limit">
+<span>シェルビー・オークス（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_41">
+<input type="checkbox" id="q19_41" name="q19" value="シャドウズ・エッジ（2025-12-12）"  class="mt-1 cb-limit">
+<span>シャドウズ・エッジ（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_42">
+<input type="checkbox" id="q19_42" name="q19" value="Black Box Diaries（2025-12-12）"  class="mt-1 cb-limit">
+<span>Black Box Diaries（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_43">
+<input type="checkbox" id="q19_43" name="q19" value="ロマンティック・キラー（2025-12-12）"  class="mt-1 cb-limit">
+<span>ロマンティック・キラー（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_44">
+<input type="checkbox" id="q19_44" name="q19" value="映画　きかんしゃトーマス　サンタをさがせ！パーシーのクリスマス急行（2025-12-12）"  class="mt-1 cb-limit">
+<span>映画　きかんしゃトーマス　サンタをさがせ！パーシーのクリスマス急行（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_45">
+<input type="checkbox" id="q19_45" name="q19" value="METライブビューイング2025-26  プッチーニ《ラ・ボエーム》（2025-12-12）"  class="mt-1 cb-limit">
+<span>METライブビューイング2025-26  プッチーニ《ラ・ボエーム》（2025-12-12）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_46">
+<input type="checkbox" id="q19_46" name="q19" value="アバター　ファイヤー・アンド・アッシュ（2025-12-19）"  class="mt-1 cb-limit">
+<span>アバター　ファイヤー・アンド・アッシュ（2025-12-19）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_47">
+<input type="checkbox" id="q19_47" name="q19" value="英国ロイヤル・バレエ＆オペラ in シネマ 2025/26 ロイヤル・オペラ「トスカ」（2025-12-19）"  class="mt-1 cb-limit">
+<span>英国ロイヤル・バレエ＆オペラ in シネマ 2025/26 ロイヤル・オペラ「トスカ」（2025-12-19）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_48">
+<input type="checkbox" id="q19_48" name="q19" value="ビューティフル・ジャーニー　ふたりの時空旅行（2025-12-19）"  class="mt-1 cb-limit">
+<span>ビューティフル・ジャーニー　ふたりの時空旅行（2025-12-19）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_49">
+<input type="checkbox" id="q19_49" name="q19" value="新解釈・幕末伝（2025-12-19）"  class="mt-1 cb-limit">
+<span>新解釈・幕末伝（2025-12-19）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_50">
+<input type="checkbox" id="q19_50" name="q19" value="楓（2025-12-19）"  class="mt-1 cb-limit">
+<span>楓（2025-12-19）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_51">
+<input type="checkbox" id="q19_51" name="q19" value="映画ラストマン FIRST LOVE（2025-12-24）"  class="mt-1 cb-limit">
+<span>映画ラストマン FIRST LOVE（2025-12-24）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_52">
+<input type="checkbox" id="q19_52" name="q19" value="白の花実（2025-12-26）"  class="mt-1 cb-limit">
+<span>白の花実（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_53">
+<input type="checkbox" id="q19_53" name="q19" value="劇場版　緊急取調室 THE FINAL（2025-12-26）"  class="mt-1 cb-limit">
+<span>劇場版　緊急取調室 THE FINAL（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_54">
+<input type="checkbox" id="q19_54" name="q19" value="ガールズ＆パンツァー　もっとらぶらぶ作戦です！　第1幕（2025-12-26）"  class="mt-1 cb-limit">
+<span>ガールズ＆パンツァー　もっとらぶらぶ作戦です！　第1幕（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_55">
+<input type="checkbox" id="q19_55" name="q19" value="大命中！MEは何しにアマゾンへ？（2025-12-26）"  class="mt-1 cb-limit">
+<span>大命中！MEは何しにアマゾンへ？（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_56">
+<input type="checkbox" id="q19_56" name="q19" value="AFRAID アフレイド（2025-12-26）"  class="mt-1 cb-limit">
+<span>AFRAID アフレイド（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_57">
+<input type="checkbox" id="q19_57" name="q19" value="サムシング・エクストラ！　やさしい泥棒のゆかいな逃避行（2025-12-26）"  class="mt-1 cb-limit">
+<span>サムシング・エクストラ！　やさしい泥棒のゆかいな逃避行（2025-12-26）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_58">
+<input type="checkbox" id="q19_58" name="q19" value="教場 Reunion（2026-01-01）"  class="mt-1 cb-limit">
+<span>教場 Reunion（2026-01-01）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_59">
+<input type="checkbox" id="q19_59" name="q19" value="迷宮のしおり（2026-01-01）"  class="mt-1 cb-limit">
+<span>迷宮のしおり（2026-01-01）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_60">
+<input type="checkbox" id="q19_60" name="q19" value="シネマ歌舞伎　歌舞伎NEXT 朧の森に棲む鬼　幸四郎版（2026-01-02）"  class="mt-1 cb-limit">
+<span>シネマ歌舞伎　歌舞伎NEXT 朧の森に棲む鬼　幸四郎版（2026-01-02）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_61">
+<input type="checkbox" id="q19_61" name="q19" value="ワーキングマン（2026-01-02）"  class="mt-1 cb-limit">
+<span>ワーキングマン（2026-01-02）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_62">
+<input type="checkbox" id="q19_62" name="q19" value="バレーボール男子日本代表ドキュメンタリー映画（タイトル未定）（2026-01-09）"  class="mt-1 cb-limit">
+<span>バレーボール男子日本代表ドキュメンタリー映画（タイトル未定）（2026-01-09）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_63">
+<input type="checkbox" id="q19_63" name="q19" value="YADANG ヤダン（2026-01-09）"  class="mt-1 cb-limit">
+<span>YADANG ヤダン（2026-01-09）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_64">
+<input type="checkbox" id="q19_64" name="q19" value="架空の犬と嘘をつく猫（2026-01-09）"  class="mt-1 cb-limit">
+<span>架空の犬と嘘をつく猫（2026-01-09）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_65">
+<input type="checkbox" id="q19_65" name="q19" value="おくびょう鳥が歌うほうへ（2026-01-09）"  class="mt-1 cb-limit">
+<span>おくびょう鳥が歌うほうへ（2026-01-09）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_66">
+<input type="checkbox" id="q19_66" name="q19" value="ALL YOU NEED IS KILL（2026-01-09）"  class="mt-1 cb-limit">
+<span>ALL YOU NEED IS KILL（2026-01-09）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_67">
+<input type="checkbox" id="q19_67" name="q19" value="英国ロイヤル・バレエ＆オペラ in シネマ 2025/26 ロイヤル・バレエ「リーズの結婚」（2026-01-16）"  class="mt-1 cb-limit">
+<span>英国ロイヤル・バレエ＆オペラ in シネマ 2025/26 ロイヤル・バレエ「リーズの結婚」（2026-01-16）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_68">
+<input type="checkbox" id="q19_68" name="q19" value="旅の終わりのたからもの（2026-01-16）"  class="mt-1 cb-limit">
+<span>旅の終わりのたからもの（2026-01-16）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_69">
+<input type="checkbox" id="q19_69" name="q19" value="あんさんぶるスターズ!! DREAM LIVE 9th Tour “Trapezium #Orion” 3面ライブスクリーン（2026-01-16）"  class="mt-1 cb-limit">
+<span>あんさんぶるスターズ!! DREAM LIVE 9th Tour “Trapezium #Orion” 3面ライブスクリーン（2026-01-16）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_70">
+<input type="checkbox" id="q19_70" name="q19" value="28年後... 白骨の神殿（2026-01-16）"  class="mt-1 cb-limit">
+<span>28年後... 白骨の神殿（2026-01-16）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_71">
+<input type="checkbox" id="q19_71" name="q19" value="とれ！（2026-01-16）"  class="mt-1 cb-limit">
+<span>とれ！（2026-01-16）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_72">
+<input type="checkbox" id="q19_72" name="q19" value="PROJECT Y（2026-01-23）"  class="mt-1 cb-limit">
+<span>PROJECT Y（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_73">
+<input type="checkbox" id="q19_73" name="q19" value="シネマ歌舞伎　歌舞伎NEXT 朧の森に棲む鬼　松也版（2026-01-23）"  class="mt-1 cb-limit">
+<span>シネマ歌舞伎　歌舞伎NEXT 朧の森に棲む鬼　松也版（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_74">
+<input type="checkbox" id="q19_74" name="q19" value="恋愛裁判（2026-01-23）"  class="mt-1 cb-limit">
+<span>恋愛裁判（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_75">
+<input type="checkbox" id="q19_75" name="q19" value="ファイブ・ナイツ・アット・フレディーズ2（2026-01-23）"  class="mt-1 cb-limit">
+<span>ファイブ・ナイツ・アット・フレディーズ2（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_76">
+<input type="checkbox" id="q19_76" name="q19" value="MERCY マーシー AI裁判（2026-01-23）"  class="mt-1 cb-limit">
+<span>MERCY マーシー AI裁判（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_77">
+<input type="checkbox" id="q19_77" name="q19" value="LIVE IN THEATER「BATTLE OF TOKYO うつくしき嘘」（2026-01-23）"  class="mt-1 cb-limit">
+<span>LIVE IN THEATER「BATTLE OF TOKYO うつくしき嘘」（2026-01-23）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_78">
+<input type="checkbox" id="q19_78" name="q19" value="クスノキの番人（2026-01-30）"  class="mt-1 cb-limit">
+<span>クスノキの番人（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_79">
+<input type="checkbox" id="q19_79" name="q19" value="HELP 復讐島（2026-01-30）"  class="mt-1 cb-limit">
+<span>HELP 復讐島（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_80">
+<input type="checkbox" id="q19_80" name="q19" value="ガールズ＆パンツァー　もっとらぶらぶ作戦です！　第2幕（2026-01-30）"  class="mt-1 cb-limit">
+<span>ガールズ＆パンツァー　もっとらぶらぶ作戦です！　第2幕（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_81">
+<input type="checkbox" id="q19_81" name="q19" value="機動戦士ガンダム　閃光のハサウェイ　キルケーの魔女（2026-01-30）"  class="mt-1 cb-limit">
+<span>機動戦士ガンダム　閃光のハサウェイ　キルケーの魔女（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_82">
+<input type="checkbox" id="q19_82" name="q19" value="マーズ・エクスプレス（2026-01-30）"  class="mt-1 cb-limit">
+<span>マーズ・エクスプレス（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_83">
+<input type="checkbox" id="q19_83" name="q19" value="ランニング・マン（2026-01-30）"  class="mt-1 cb-limit">
+<span>ランニング・マン（2026-01-30）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_84">
+<input type="checkbox" id="q19_84" name="q19" value="劇場版　魔法少女まどか☆マギカ　ワルプルギスの廻天（2026-02-01）"  class="mt-1 cb-limit">
+<span>劇場版　魔法少女まどか☆マギカ　ワルプルギスの廻天（2026-02-01）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_85">
+<input type="checkbox" id="q19_85" name="q19" value="FUKUYAMA MASAHARU LIVE FILM@NAGASAKI 月光　ずっとこの光につながっていたんだ（2026-02-06）"  class="mt-1 cb-limit">
+<span>FUKUYAMA MASAHARU LIVE FILM@NAGASAKI 月光　ずっとこの光につながっていたんだ（2026-02-06）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_86">
+<input type="checkbox" id="q19_86" name="q19" value="トゥギャザー（2026-02-06）"  class="mt-1 cb-limit">
+<span>トゥギャザー（2026-02-06）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_87">
+<input type="checkbox" id="q19_87" name="q19" value="ほどなく、お別れです（2026-02-06）"  class="mt-1 cb-limit">
+<span>ほどなく、お別れです（2026-02-06）</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q19_88">
+<input type="checkbox" id="q19_88" name="q19" value="METライブビューイング2025-26  R・シュトラウス《アラベッラ》（2026-02-06）"  class="mt-1 cb-limit">
+<span>METライブビューイング2025-26  R・シュトラウス《アラベッラ》（2026-02-06）</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">20. 普段、最もよく利用する映画館をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q20_0">
+<input type="radio" id="q20_0" name="q20" value="TOHOシネマズ" required class="mt-1">
+<span>TOHOシネマズ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_1">
+<input type="radio" id="q20_1" name="q20" value="イオンシネマ"  class="mt-1">
+<span>イオンシネマ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_2">
+<input type="radio" id="q20_2" name="q20" value="ユナイテッド・シネマ"  class="mt-1">
+<span>ユナイテッド・シネマ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_3">
+<input type="radio" id="q20_3" name="q20" value="109シネマズ"  class="mt-1">
+<span>109シネマズ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_4">
+<input type="radio" id="q20_4" name="q20" value="MOVIX／ピカデリー"  class="mt-1">
+<span>MOVIX／ピカデリー</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_5">
+<input type="radio" id="q20_5" name="q20" value="T・ジョイ"  class="mt-1">
+<span>T・ジョイ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_6">
+<input type="radio" id="q20_6" name="q20" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q20_7">
+<input type="radio" id="q20_7" name="q20" value="特に決めていない"  class="mt-1">
+<span>特に決めていない</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">21. 映画館を選ぶ際に重視する要素を上位3つまでお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q21_0">
+<input type="checkbox" id="q21_0" name="q21" value="立地・アクセス" data-limit="3" class="mt-1 cb-limit">
+<span>立地・アクセス</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_1">
+<input type="checkbox" id="q21_1" name="q21" value="上映作品のラインナップ" data-limit="3" class="mt-1 cb-limit">
+<span>上映作品のラインナップ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_2">
+<input type="checkbox" id="q21_2" name="q21" value="上映時間" data-limit="3" class="mt-1 cb-limit">
+<span>上映時間</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_3">
+<input type="checkbox" id="q21_3" name="q21" value="チケット料金" data-limit="3" class="mt-1 cb-limit">
+<span>チケット料金</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_4">
+<input type="checkbox" id="q21_4" name="q21" value="スクリーンや音響などの設備" data-limit="3" class="mt-1 cb-limit">
+<span>スクリーンや音響などの設備</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_5">
+<input type="checkbox" id="q21_5" name="q21" value="会員サービス・割引" data-limit="3" class="mt-1 cb-limit">
+<span>会員サービス・割引</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_6">
+<input type="checkbox" id="q21_6" name="q21" value="座席の快適さ" data-limit="3" class="mt-1 cb-limit">
+<span>座席の快適さ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q21_7">
+<input type="checkbox" id="q21_7" name="q21" value="その他" data-limit="3" class="mt-1 cb-limit">
+<span>その他</span>
+</label><p class="text-xs text-gray-600 mt-1">最大3つまで選択できます。</p>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">22. 映画館に行く際の主な交通手段をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q22_0">
+<input type="radio" id="q22_0" name="q22" value="公共交通機関" required class="mt-1">
+<span>公共交通機関</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q22_1">
+<input type="radio" id="q22_1" name="q22" value="自家用車"  class="mt-1">
+<span>自家用車</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q22_2">
+<input type="radio" id="q22_2" name="q22" value="徒歩"  class="mt-1">
+<span>徒歩</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q22_3">
+<input type="radio" id="q22_3" name="q22" value="自転車"  class="mt-1">
+<span>自転車</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q22_4">
+<input type="radio" id="q22_4" name="q22" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">23. ご自宅から映画館までの移動時間をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q23_0">
+<input type="radio" id="q23_0" name="q23" value="10分以内" required class="mt-1">
+<span>10分以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q23_1">
+<input type="radio" id="q23_1" name="q23" value="10分〜30分以内"  class="mt-1">
+<span>10分〜30分以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q23_2">
+<input type="radio" id="q23_2" name="q23" value="30分〜1時間以内"  class="mt-1">
+<span>30分〜1時間以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q23_3">
+<input type="radio" id="q23_3" name="q23" value="1時間〜1時間30分以内"  class="mt-1">
+<span>1時間〜1時間30分以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q23_4">
+<input type="radio" id="q23_4" name="q23" value="1時間30分以上"  class="mt-1">
+<span>1時間30分以上</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">24. 映画館に行く日の、1日の過ごし方として最も多いパターンをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q24_0">
+<input type="radio" id="q24_0" name="q24" value="映画鑑賞の前に食事や買い物" required class="mt-1">
+<span>映画鑑賞の前に食事や買い物</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q24_1">
+<input type="radio" id="q24_1" name="q24" value="映画鑑賞の後に食事や買い物"  class="mt-1">
+<span>映画鑑賞の後に食事や買い物</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q24_2">
+<input type="radio" id="q24_2" name="q24" value="映画鑑賞のみ"  class="mt-1">
+<span>映画鑑賞のみ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q24_3">
+<input type="radio" id="q24_3" name="q24" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">25. 「これは映画館で観たい」と思うジャンルをすべてお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q25_0">
+<input type="checkbox" id="q25_0" name="q25" value="アクション"  class="mt-1 cb-limit">
+<span>アクション</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_1">
+<input type="checkbox" id="q25_1" name="q25" value="SF／ファンタジー"  class="mt-1 cb-limit">
+<span>SF／ファンタジー</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_2">
+<input type="checkbox" id="q25_2" name="q25" value="アニメ"  class="mt-1 cb-limit">
+<span>アニメ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_3">
+<input type="checkbox" id="q25_3" name="q25" value="ミュージカル"  class="mt-1 cb-limit">
+<span>ミュージカル</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_4">
+<input type="checkbox" id="q25_4" name="q25" value="ドラマ"  class="mt-1 cb-limit">
+<span>ドラマ</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_5">
+<input type="checkbox" id="q25_5" name="q25" value="サスペンス／ホラー"  class="mt-1 cb-limit">
+<span>サスペンス／ホラー</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q25_6">
+<input type="checkbox" id="q25_6" name="q25" value="その他"  class="mt-1 cb-limit">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">26. 映画館での鑑賞で最も魅力に感じる点をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q26_0">
+<input type="radio" id="q26_0" name="q26" value="大画面と音響による没入感" required class="mt-1">
+<span>大画面と音響による没入感</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q26_1">
+<input type="radio" id="q26_1" name="q26" value="作品に集中できる環境"  class="mt-1">
+<span>作品に集中できる環境</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q26_2">
+<input type="radio" id="q26_2" name="q26" value="他の観客との一体感"  class="mt-1">
+<span>他の観客との一体感</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q26_3">
+<input type="radio" id="q26_3" name="q26" value="外出するというイベント感"  class="mt-1">
+<span>外出するというイベント感</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q26_4">
+<input type="radio" id="q26_4" name="q26" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">27. 映画館での鑑賞マナーで、最も気になることをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q27_0">
+<input type="radio" id="q27_0" name="q27" value="上映中のおしゃべり" required class="mt-1">
+<span>上映中のおしゃべり</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q27_1">
+<input type="radio" id="q27_1" name="q27" value="スマートフォンの光"  class="mt-1">
+<span>スマートフォンの光</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q27_2">
+<input type="radio" id="q27_2" name="q27" value="前の座席を蹴る行為"  class="mt-1">
+<span>前の座席を蹴る行為</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q27_3">
+<input type="radio" id="q27_3" name="q27" value="食べ物の音や匂い"  class="mt-1">
+<span>食べ物の音や匂い</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q27_4">
+<input type="radio" id="q27_4" name="q27" value="その他"  class="mt-1">
+<span>その他</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">28. 性別をお選びください。（回答しない可） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q28_0">
+<input type="radio" id="q28_0" name="q28" value="男性" required class="mt-1">
+<span>男性</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q28_1">
+<input type="radio" id="q28_1" name="q28" value="女性"  class="mt-1">
+<span>女性</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q28_2">
+<input type="radio" id="q28_2" name="q28" value="その他／回答しない"  class="mt-1">
+<span>その他／回答しない</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">29. 年代をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q29_0">
+<input type="radio" id="q29_0" name="q29" value="15歳未満" required class="mt-1">
+<span>15歳未満</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_1">
+<input type="radio" id="q29_1" name="q29" value="15～19歳"  class="mt-1">
+<span>15～19歳</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_2">
+<input type="radio" id="q29_2" name="q29" value="20代"  class="mt-1">
+<span>20代</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_3">
+<input type="radio" id="q29_3" name="q29" value="30代"  class="mt-1">
+<span>30代</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_4">
+<input type="radio" id="q29_4" name="q29" value="40代"  class="mt-1">
+<span>40代</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_5">
+<input type="radio" id="q29_5" name="q29" value="50代"  class="mt-1">
+<span>50代</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_6">
+<input type="radio" id="q29_6" name="q29" value="60代"  class="mt-1">
+<span>60代</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q29_7">
+<input type="radio" id="q29_7" name="q29" value="70代以上"  class="mt-1">
+<span>70代以上</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">30. お住まいの都道府県をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <select name="q30" id="q30" class="w-full p-2 border rounded" required>
+<option value="" disabled selected>選択してください</option>
+<option value="北海道">北海道</option>
+<option value="青森県">青森県</option>
+<option value="岩手県">岩手県</option>
+<option value="宮城県">宮城県</option>
+<option value="秋田県">秋田県</option>
+<option value="山形県">山形県</option>
+<option value="福島県">福島県</option>
+<option value="茨城県">茨城県</option>
+<option value="栃木県">栃木県</option>
+<option value="群馬県">群馬県</option>
+<option value="埼玉県">埼玉県</option>
+<option value="千葉県">千葉県</option>
+<option value="東京都">東京都</option>
+<option value="神奈川県">神奈川県</option>
+<option value="新潟県">新潟県</option>
+<option value="富山県">富山県</option>
+<option value="石川県">石川県</option>
+<option value="福井県">福井県</option>
+<option value="山梨県">山梨県</option>
+<option value="長野県">長野県</option>
+<option value="岐阜県">岐阜県</option>
+<option value="静岡県">静岡県</option>
+<option value="愛知県">愛知県</option>
+<option value="三重県">三重県</option>
+<option value="滋賀県">滋賀県</option>
+<option value="京都府">京都府</option>
+<option value="大阪府">大阪府</option>
+<option value="兵庫県">兵庫県</option>
+<option value="奈良県">奈良県</option>
+<option value="和歌山県">和歌山県</option>
+<option value="鳥取県">鳥取県</option>
+<option value="島根県">島根県</option>
+<option value="岡山県">岡山県</option>
+<option value="広島県">広島県</option>
+<option value="山口県">山口県</option>
+<option value="徳島県">徳島県</option>
+<option value="香川県">香川県</option>
+<option value="愛媛県">愛媛県</option>
+<option value="高知県">高知県</option>
+<option value="福岡県">福岡県</option>
+<option value="佐賀県">佐賀県</option>
+<option value="長崎県">長崎県</option>
+<option value="熊本県">熊本県</option>
+<option value="大分県">大分県</option>
+<option value="宮崎県">宮崎県</option>
+<option value="鹿児島県">鹿児島県</option>
+<option value="沖縄県">沖縄県</option>
+</select>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">31. 映画館での年間鑑賞頻度をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q31_0">
+<input type="radio" id="q31_0" name="q31" value="年に1～4回" required class="mt-1">
+<span>年に1～4回</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q31_1">
+<input type="radio" id="q31_1" name="q31" value="年に5～11回、年に12回以上"  class="mt-1">
+<span>年に5～11回、年に12回以上</span>
+</label>
+</section>
+
+<section class="mb-8">
+  <h3 class="text-lg font-semibold mb-2">32. （今回を除いて）直近で映画館で映画を鑑賞した時期をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <label class="flex items-start gap-2 cursor-pointer" for="q32_0">
+<input type="radio" id="q32_0" name="q32" value="1週間以内" required class="mt-1">
+<span>1週間以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_1">
+<input type="radio" id="q32_1" name="q32" value="1ヶ月以内"  class="mt-1">
+<span>1ヶ月以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_2">
+<input type="radio" id="q32_2" name="q32" value="3ヶ月以内"  class="mt-1">
+<span>3ヶ月以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_3">
+<input type="radio" id="q32_3" name="q32" value="半年以内"  class="mt-1">
+<span>半年以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_4">
+<input type="radio" id="q32_4" name="q32" value="1年以内"  class="mt-1">
+<span>1年以内</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_5">
+<input type="radio" id="q32_5" name="q32" value="1年以上～3年未満"  class="mt-1">
+<span>1年以上～3年未満</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_6">
+<input type="radio" id="q32_6" name="q32" value="3年以上前"  class="mt-1">
+<span>3年以上前</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_7">
+<input type="radio" id="q32_7" name="q32" value="今回が初めての映画館鑑賞"  class="mt-1">
+<span>今回が初めての映画館鑑賞</span>
+</label>
+<label class="flex items-start gap-2 cursor-pointer" for="q32_8">
+<input type="radio" id="q32_8" name="q32" value="覚えていない"  class="mt-1">
+<span>覚えていない</span>
+</label>
+</section>
+
+<section class="mt-10">
+  <button type="submit" class="px-5 py-2 rounded-xl bg-black text-white font-bold">送信</button>
+</section>
+
+      </form>
+      <div id="thanks" style="display:none" class="mb-10">
+        <h2 class="text-lg font-semibold mb-2">ご回答ありがとうございました！</h2>
+        <p>送信が完了しました。</p>
+      </div>
+    </div>
+  </main>
+
+<script>
+(function (){
+  const form = document.getElementById('castForm');
+  const bar = document.getElementById('progressBar');
+  const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+
+  function updateProgress(){
+    const requiredGroups = new Set();
+    form.querySelectorAll('input[type="radio"][required]').forEach(r=>requiredGroups.add(r.name));
+    form.querySelectorAll('select[required]').forEach(s=>requiredGroups.add(s.name));
+    form.querySelectorAll('input[type="checkbox"][required]').forEach(c=>requiredGroups.add(c.name));
+    const requiredTextareas = Array.from(form.querySelectorAll('textarea[required]')).map(t=>t.name);
+    requiredTextareas.forEach(n=>requiredGroups.add(n));
+
+    let filled = 0;
+    let total = requiredGroups.size;
+
+    requiredGroups.forEach(name=>{
+      const group = form.querySelectorAll(`[name="${name}"]`);
+      if(group[0] && group[0].type === 'radio') {
+        if(Array.from(group).some(g=>g.checked)) filled++;
+      } else if(group[0] && group[0].type === 'checkbox') {
+        if(Array.from(group).some(g=>g.checked)) filled++;
+      } else {
+        const el = form.querySelector(`[name="${name}"]`);
+        if(el && el.value) filled++;
+      }
+    });
+
+    const pct = total ? Math.round(filled/total*100) : 0;
+    bar.style.width = pct + '%';
+  }
+
+  inputs.forEach(el=>{
+    el.addEventListener('change', updateProgress);
+    el.addEventListener('input', updateProgress);
+  });
+  updateProgress();
+
+  // checkbox limit handler
+  form.addEventListener('change', function(e){
+    const target = e.target;
+    if(target.classList.contains('cb-limit')){
+      const name = target.name;
+      const limit = parseInt(target.getAttribute('data-limit')||'0',10);
+      if(limit>0){
+        const checked = form.querySelectorAll(`input.cb-limit[name="${name}"]:checked`);
+        if(checked.length>limit){
+          target.checked = false;
+          alert(`この設問は最大${limit}つまで選択できます。`);
+        }
+      }
+    }
+  });
+})();
+
+function handleSubmit(e){
+  e.preventDefault();
+  if(!e.target.reportValidity()) return;
+  e.target.style.display = 'none';
+  document.getElementById('thanks').style.display = 'block';
+}
+</script>
+</body>
+</html>
