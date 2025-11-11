@@ -19,7 +19,8 @@
   .border { border:1px solid #e5e5e5; }
   .rounded { border-radius: 12px; }
   .rounded-xl { border-radius: 16px; }
-  .mb-2 { margin-bottom: 8px; } .mb-3{margin-bottom:12px;} .mb-8{margin-bottom:32px;} .mb-10{margin-bottom:40px;} .mt-10{margin-top:40px;}
+  .mb-2 { margin-bottom: 8px; } .mb-3{margin-bottom:12px;} .mb-7{margin-bottom:28px;} .mb-8{margin-bottom:32px;}
+  .mt-8{margin-top:32px;}
   .p-2 { padding:8px; } .px-5{padding-left:20px;padding-right:20px;} .py-2{padding-top:8px;padding-bottom:8px;}
   .font-bold{font-weight:700;} .font-semibold{font-weight:600;}
   .text-xs{font-size:12px;} .text-sm{font-size:14px;} .text-lg{font-size:18px;}
@@ -45,14 +46,14 @@
     <div class="container">
       <form id="castForm" onsubmit="handleSubmit(event)">
         
-<section class="mb-10">
+<section class="mb-8">
   <h2 class="text-xl font-semibold mb-2">ご協力のお願い</h2>
-  <p class="mb-3">本アンケートは、映画館および作品の体験向上のために実施しています。所要時間は約5〜7分です。個人を特定できる情報は収集しません。</p>
+  <p class="mb-2">本アンケートは、映画館および作品の体験向上のために実施しています。所要時間は約5〜7分です。個人を特定できる情報は収集しません。</p>
   <label class="flex items-start gap-2"><input type="checkbox" id="consent" required>
   <span>上記の目的に同意し、アンケートに回答します。</span></label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">1. 本日ご鑑賞の作品名をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q01_0">
 <input type="radio" id="q01_0" name="q01" value="プレデター　バッドランド（2025-11-07）" required class="mt-1">
@@ -179,11 +180,11 @@
   <span>その他</span>
 </label>
 <div class="mt-1" style="margin-left:1.5rem;">
-  <input type="text" id="q01_other_text" name="q01_other_text" class="w-full p-2 border rounded other-text" placeholder="内容を入力してください" disabled>
+  <input type="text" id="q01_other_text" name="q01_other_text" class="w-full p-2 border rounded other-text" placeholder="作品名を入力してください" disabled>
 </div>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">2. ご鑑賞の上映フォーマットをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q02_0">
 <input type="radio" id="q02_0" name="q02" value="通常上映（2D字幕）" required class="mt-1">
@@ -239,7 +240,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">3. この作品の鑑賞は今回で何回目ですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q03_0">
 <input type="radio" id="q03_0" name="q03" value="初めて" required class="mt-1">
@@ -263,7 +264,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">4. この作品を「もう一度、映画館で」観たいと思いますか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q04_0">
 <input type="radio" id="q04_0" name="q04" value="ぜひもう一度映画館で観たい" required class="mt-1">
@@ -287,7 +288,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">5. この作品を友人・同僚にどの程度おすすめしたいですか？（0～10点） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <div class="flex flex-wrap"><label for="q05_0" class="inline-flex flex-col items-center m-1">
 <input type="radio" id="q05_0" name="q05" value="0" required>
@@ -335,7 +336,7 @@
 </label></div><p class="text-xs text-gray-600 mt-1">0=全くすすめない／10=強くすすめる</p>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">6. 作品の満足点を最大3つまでお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q06_0">
 <input type="checkbox" id="q06_0" name="q06" value="ストーリー／脚本" data-limit="3" class="mt-1 cb-limit">
@@ -379,12 +380,12 @@
 </label><p class="text-xs text-gray-600 mt-1">最大3つまで選択できます。</p>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">7. 作品に関するご感想があればご自由にお書きください。（任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
   <textarea id="q07" name="q07" rows="4" class="w-full p-2 border rounded" placeholder="ご自由にお書きください"></textarea>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">8. この作品の情報を最初に知ったのはどれですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q08_0">
 <input type="radio" id="q08_0" name="q08" value="劇場での予告編" required class="mt-1">
@@ -428,7 +429,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">9. この作品を観ようと決めた一番の理由はどれですか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q09_0">
 <input type="radio" id="q09_0" name="q09" value="好きな監督・俳優が出演" required class="mt-1">
@@ -464,7 +465,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">10. 本日ご来館の“最後のひと押し”は何でしたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q10_0">
 <input type="radio" id="q10_0" name="q10" value="SNSで絶賛の感想を見たから" required class="mt-1">
@@ -504,7 +505,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">11. この映画館を家族や友人にどの程度おすすめしたいですか？（0～10点） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <div class="flex flex-wrap"><label for="q11_0" class="inline-flex flex-col items-center m-1">
 <input type="radio" id="q11_0" name="q11" value="0" required>
@@ -552,7 +553,7 @@
 </label></div><p class="text-xs text-gray-600 mt-1">0=全くすすめない／10=強くすすめる</p>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">12. 本日、この映画館を選んだ一番の理由をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q12_0">
 <input type="radio" id="q12_0" name="q12" value="立地が便利だから" required class="mt-1">
@@ -580,7 +581,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">13. 本日、映画館でフード／ドリンクを購入しましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q13_0">
 <input type="radio" id="q13_0" name="q13" value="購入した" required class="mt-1">
@@ -592,12 +593,12 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">14. 映画館へのご意見・ご要望があればご記入ください。（任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
   <textarea id="q14" name="q14" rows="4" class="w-full p-2 border rounded" placeholder="ご自由にお書きください"></textarea>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">15. 本日はどなたとご鑑賞になりましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q15_0">
 <input type="radio" id="q15_0" name="q15" value="1人で" required class="mt-1">
@@ -629,7 +630,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">16. ご鑑賞の時間帯をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q16_0">
 <input type="radio" id="q16_0" name="q16" value="平日の午前中" required class="mt-1">
@@ -657,7 +658,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">17. チケットはいつ購入しましたか？ <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q17_0">
 <input type="radio" id="q17_0" name="q17" value="当日" required class="mt-1">
@@ -677,7 +678,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">18. 今回のチケットの購入方法をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q18_0">
 <input type="radio" id="q18_0" name="q18" value="当日窓口で" required class="mt-1">
@@ -705,7 +706,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">19. 本日ご覧になった予告編で、今後「鑑賞したい」と思った作品があればお選びください。（複数選択可・任意） <span class="text-gray-500 text-xs align-middle ml-1">（任意）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q19_0">
 <input type="checkbox" id="q19_0" name="q19" value="港のひかり（2025-11-14）"  class="mt-1 cb-limit">
@@ -1065,7 +1066,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">20. 普段、最もよく利用する映画館をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q20_0">
 <input type="radio" id="q20_0" name="q20" value="TOHOシネマズ" required class="mt-1">
@@ -1101,7 +1102,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">21. 映画館を選ぶ際に重視する要素を上位3つまでお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q21_0">
 <input type="checkbox" id="q21_0" name="q21" value="立地・アクセス" data-limit="3" class="mt-1 cb-limit">
@@ -1137,7 +1138,7 @@
 </label><p class="text-xs text-gray-600 mt-1">最大3つまで選択できます。</p>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">22. 映画館に行く際の主な交通手段をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q22_0">
 <input type="radio" id="q22_0" name="q22" value="公共交通機関" required class="mt-1">
@@ -1161,7 +1162,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">23. ご自宅から映画館までの移動時間をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q23_0">
 <input type="radio" id="q23_0" name="q23" value="10分以内" required class="mt-1">
@@ -1185,7 +1186,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">24. 映画館に行く日の、1日の過ごし方として最も多いパターンをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q24_0">
 <input type="radio" id="q24_0" name="q24" value="映画鑑賞の前に食事や買い物" required class="mt-1">
@@ -1205,7 +1206,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">25. 「これは映画館で観たい」と思うジャンルをすべてお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q25_0">
 <input type="checkbox" id="q25_0" name="q25" value="アクション"  class="mt-1 cb-limit">
@@ -1237,7 +1238,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">26. 映画館での鑑賞で最も魅力に感じる点をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q26_0">
 <input type="radio" id="q26_0" name="q26" value="大画面と音響による没入感" required class="mt-1">
@@ -1261,7 +1262,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">27. 映画館での鑑賞マナーで、最も気になることをお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q27_0">
 <input type="radio" id="q27_0" name="q27" value="上映中のおしゃべり" required class="mt-1">
@@ -1285,7 +1286,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">28. 性別をお選びください。（回答しない可） <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q28_0">
 <input type="radio" id="q28_0" name="q28" value="男性" required class="mt-1">
@@ -1301,7 +1302,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">29. 年代をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q29_0">
 <input type="radio" id="q29_0" name="q29" value="15歳未満" required class="mt-1">
@@ -1337,7 +1338,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">30. お住まいの都道府県をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <select name="q30" id="q30" class="w-full p-2 border rounded" required>
 <option value="" disabled selected>選択してください</option>
@@ -1391,7 +1392,7 @@
 </select>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">31. 映画館での年間鑑賞頻度をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q31_0">
 <input type="radio" id="q31_0" name="q31" value="年に1～4回" required class="mt-1">
@@ -1403,7 +1404,7 @@
 </label>
 </section>
 
-<section class="mb-8">
+<section class="mb-7">
   <h3 class="text-lg font-semibold mb-2">32. （今回を除いて）直近で映画館で映画を鑑賞した時期をお選びください。 <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
   <label class="flex items-start gap-2 cursor-pointer" for="q32_0">
 <input type="radio" id="q32_0" name="q32" value="1週間以内" required class="mt-1">
@@ -1450,12 +1451,43 @@
 </div>
 </section>
 
-<section class="mt-10">
+<section class="mb-7">
+  <h3 class="text-lg font-semibold mb-2">ご連絡先メールアドレス <span class="text-red-600 text-xs align-middle ml-1">（必須）</span></h3>
+  <p class="text-sm text-gray-600 mb-2">回答の確認やご案内のために利用します。メールアドレスは当社のプライバシーポリシーに基づき厳重に管理します。</p>
+  <input type="email" id="email" name="email" required placeholder="例：example@domain.jp" class="w-full p-2 border rounded">
+</section>
+
+<section class="mb-7">
+  <h3 class="text-lg font-semibold mb-2">【個人情報の取り扱いについて】</h3>
+  <div class="text-sm text-gray-600 border rounded p-2" style="max-height: 220px; overflow: auto; white-space: pre-wrap;">
+本アンケートは、主催者「映画館に行こう実行委員会」より委託された株式会社ガイエ（以下ガイエ）が運営しています。 ご入力いただいたメールアドレスおよびご回答内容は、ガイエが下記の目的のために利用し、当社のプライバシーポリシーに基づき責任をもって厳重に管理いたします。 
+
+１．利用目的
+・映画に関する情報提供 ガイエからの、新作映画情報、関連ニュース、お得なキャンペーン等のご案内メールの配信 
+・パーソナライズされたご案内の配信 映画配給会社等のパートナー企業からの委託を受け、ガイエが送信する、お客様のアンケート回答内容（好きなジャンル、鑑賞した作品の評価など）や属性情報（年代・性別など）に応じた、新作映画情報、限定クーポン、特別試写会等のご案内メールの配信 
+・本アンケートに関連した広告表示 ご回答内容や属性情報を分析し、本アンケートの回答完了画面において、お客様の興味・関心に合わせた広告（新作映画情報、関連サービス等）を表示するため
+・アンケート・調査へのご協力依頼 本アンケートに関する追加のご質問や、特定のテーマに関するインタビューへのご協力依頼
+・属性情報と関連付けた分析 ご登録いただいたメールアドレスと今回のアンケートご回答内容を関連付け、ターゲティング広告配信のためのセグメント作成、および、よりパーソナライズされた情報をお届けするための分析に利用します。 
+
+２．個人情報の第三者提供について ご本人の同意なく、メールアドレスそのものを「映画館に行こう実行委員会」の参加企業や、映画配給会社等の第三者に開示または提供することは一切ございません。 （※当社がパートナー企業に代わって、当社からお客様にメールを送信する形式をとります） 
+
+３．登録の解除について 配信されるご案内メールは、メール内に記載のURLから、いつでも簡単に配信停止（オプトアウト）の手続きが可能です。 
+
+４. プライバシーポリシー 当社の個人情報の取り扱いに関する詳細については、下記リンクより当社のプライバシーポリシーをご確認ください。 
+　株式会社ガイエ プライバシーポリシー【個人情報の取り扱いについて】
+  </div>
+  <label class="flex items-start gap-2 mt-2">
+    <input type="checkbox" name="optin" id="optin" required class="mt-1">
+    <span>上記の内容を読み、同意します（必須）</span>
+  </label>
+</section>
+
+<section class="mt-8">
   <button type="submit" class="px-5 py-2 rounded-xl bg-black text-white font-bold">送信</button>
 </section>
 
       </form>
-      <div id="thanks" style="display:none" class="mb-10">
+      <div id="thanks" style="display:none" class="mb-8">
         <h2 class="text-lg font-semibold mb-2">ご回答ありがとうございました！</h2>
         <p>送信が完了しました。</p>
       </div>
